@@ -1,0 +1,56 @@
+PHOTON TUNNEL — PROPRIETARY SOFTWARE LICENSE
+==============================================
+Copyright (c) 2026 David Brian Stone / GRMG LLC
+All Rights Reserved.
+
+Contact: david@globalmanagementgroupllc.ltd
+Repository: https://github.com/brianallicat/photon-tunnel
+
+TERMS AND CONDITIONS
+
+1. OWNERSHIP
+   This software, including all source code, documentation, architecture,
+   algorithms, and associated materials ("the Software"), is the exclusive
+   intellectual property of David Brian Stone / GRMG LLC. Copyright is
+   automatic and applies from the date of original creation.
+
+2. PERMITTED USE
+   The Software is made publicly visible for the purpose of review,
+   inspection, and demonstration only. Visibility does not constitute
+   permission to copy, use, or redistribute.
+
+3. PROHIBITED ACTIONS
+   Without prior written permission from the copyright holder, you may NOT:
+   - Copy, reproduce, or clone the Software or any portion thereof
+   - Modify, adapt, or create derivative works based on the Software
+   - Distribute, sublicense, sell, or transfer the Software to any third party
+   - Use the Software or its architecture for any commercial purpose
+   - Deploy the Software in any production or commercial environment
+   - Create mirror repositories or forks intended to compete with this Software
+   - Remove or alter this copyright notice or any other copyright notices
+
+4. ATTRIBUTION
+   Any permitted reference to this Software must include full attribution:
+   "Photon Tunnel by David Brian Stone / GRMG LLC"
+   and a link to: https://github.com/brianallicat/photon-tunnel
+
+5. NO WARRANTY
+   THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED. THE AUTHOR MAKES NO REPRESENTATIONS REGARDING
+   FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT.
+
+6. ENFORCEMENT
+   Violations of these terms may result in legal action. The copyright
+   holder reserves all rights to pursue remedies available under
+   applicable intellectual property law.
+
+7. CONTACT FOR LICENSING
+   For licensing inquiries, permissions, or commercial use requests:
+   david@globalmanagementgroupllc.ltd
+
+This license is governed by applicable United States copyright law.
+Priority of authorship is established by GitHub commit timestamps,
+OneDrive file timestamps, and session records dated from early 2026.
+
+David Brian Stone / GRMG LLC
+March 2026
