@@ -1,7 +1,7 @@
 // ============================================================
-// PHOTON TUNNEL — ALPHA1 — D501 DIMENSIONAL ARCHITECTURE
+// PHOTON TUNNEL â ALPHA1 â D501 DIMENSIONAL ARCHITECTURE
 // Author: David Brian Stone | GRMG, LLC | March 2026
-// Version: 2.0 ALPHA1 — Enhanced Quantum Entropy + D501
+// Version: 2.0 ALPHA1 â Enhanced Quantum Entropy + D501
 // No AI. No Simulation. Real Hardware. Real Physics.
 // AES-256-GCM + HMAC-SHA256 + D501 Dimensional Key Space
 // Earth Field Coupling + Multi-Layer Quantum Entropy
@@ -12,14 +12,14 @@ const c=require('crypto'),{performance:pf}=require('perf_hooks');
 const {Worker,isMainThread,parentPort,workerData}=require('worker_threads');
 const P=7432;
 
-// ── STATE ────────────────────────────────────────────────────
+// ââ STATE ââââââââââââââââââââââââââââââââââââââââââââââââââââ
 let lk=false,lF=0,lD=0,st=0,tO=false,samps=[],cur=null;
 let rxB=[],rxL=[],rxA=false,sk=null,phots=[],EK=null;
 const peers={};
 
-// ── ALPHA1: PERMANENT HARDWARE FINGERPRINT ──────────────────
+// ââ ALPHA1: PERMANENT HARDWARE FINGERPRINT ââââââââââââââââââ
 // Derived from CPU model + core count + platform + memory geometry
-// This machine's permanent identity in the Earth field — never changes
+// This machine's permanent identity in the Earth field â never changes
 function getHardwareFingerprint(){
   const cpuModel=(os.cpus()[0]&&os.cpus()[0].model)||'unknown';
   const cores=os.cpus().length;
@@ -31,14 +31,14 @@ function getHardwareFingerprint(){
 const HW_FINGERPRINT=getHardwareFingerprint();
 const PEER_ID='PT_'+HW_FINGERPRINT.slice(0,16); // Permanent Peer ID
 
-// ── ALPHA1: D501 SCHUMANN REFERENCE ─────────────────────────
-// Earth's electromagnetic heartbeat — 7.83Hz constant
+// ââ ALPHA1: D501 SCHUMANN REFERENCE âââââââââââââââââââââââââ
+// Earth's electromagnetic heartbeat â 7.83Hz constant
 // Used as the synchronization reference for Earth field coupling
 const SCHUMANN_HZ=7.83;
 const D501_DIMENSIONS=501;
 const D31_DIMENSION=31; // Our observable dimension
 
-// ── ALPHA1: MULTI-LAYER ENTROPY CHANNELS ────────────────────
+// ââ ALPHA1: MULTI-LAYER ENTROPY CHANNELS ââââââââââââââââââââ
 // Layer 1: CPU timing jitter (original)
 // Layer 2: Memory access timing variance
 // Layer 3: Process timing variance
@@ -48,7 +48,7 @@ const D31_DIMENSION=31; // Our observable dimension
 // Combined = true multi-dimensional quantum measurement
 
 function mCPU(){
-  // Original CPU jitter — 20 iterations of 50,000 sqrt operations
+  // Original CPU jitter â 20 iterations of 50,000 sqrt operations
   const t=[];
   for(let i=0;i<20;i++){
     const t0=pf.now();
@@ -61,7 +61,7 @@ function mCPU(){
   return{jitter:j,entropy:j/a,avg:a};
 }
 
-// ALPHA1: Memory access timing — Layer 2 entropy channel
+// ALPHA1: Memory access timing â Layer 2 entropy channel
 function mMEM(){
   const buf=Buffer.alloc(1024*1024); // 1MB buffer
   const t=[];
@@ -75,7 +75,7 @@ function mMEM(){
   return{jitter:j,entropy:j/a,avg:a};
 }
 
-// ALPHA1: Process timing variance — Layer 3 entropy channel
+// ALPHA1: Process timing variance â Layer 3 entropy channel
 function mPROC(){
   const t=[];
   for(let i=0;i<15;i++){
@@ -91,7 +91,7 @@ function mPROC(){
   return{jitter:j,entropy:j/a,avg:a};
 }
 
-// ALPHA1: Crypto hardware RNG timing — Layer 4
+// ALPHA1: Crypto hardware RNG timing â Layer 4
 function mCRYPTO(){
   const t=[];
   for(let i=0;i<20;i++){
@@ -104,7 +104,7 @@ function mCRYPTO(){
   return{jitter:j,entropy:j/a,avg:a};
 }
 
-// ALPHA1: Hash chain timing — Layer 5 (GPU-adjacent computation)
+// ALPHA1: Hash chain timing â Layer 5 (GPU-adjacent computation)
 function mHASH(){
   const t=[];
   for(let i=0;i<15;i++){
@@ -140,7 +140,7 @@ function mALL(){
   };
 }
 
-// ── ALPHA1: D501 DIMENSIONAL SPIN STATE ─────────────────────
+// ââ ALPHA1: D501 DIMENSIONAL SPIN STATE âââââââââââââââââââââ
 // Maps 5 physical measurement channels to 501 dimensional states
 // D31 = our observable dimension (index 31)
 // D501 = full dimensional space (indices 1-501)
@@ -166,7 +166,7 @@ function computeD501State(allMeasurement,rtt){
   return dims;
 }
 
-// ALPHA1: D501 filter — removes D31 interference using dimensional key
+// ALPHA1: D501 filter â removes D31 interference using dimensional key
 function applyD501Filter(measurement,dims){
   // XOR combine all 501 dimensional values into a 32-byte filter key
   let filterKey=Buffer.alloc(32,0);
@@ -177,7 +177,7 @@ function applyD501Filter(measurement,dims){
   return filterKey;
 }
 
-// ── NETWORK RTT ──────────────────────────────────────────────
+// ââ NETWORK RTT ââââââââââââââââââââââââââââââââââââââââââââââ
 function mNet(cb){
   const rs=[];let d=0;
   ['https://www.google.com','https://1.1.1.1'].forEach(u=>{
@@ -190,7 +190,7 @@ function mNet(cb){
   });
 }
 
-// ── ALPHA1: ENHANCED FREQUENCY SAMPLE ───────────────────────
+// ââ ALPHA1: ENHANCED FREQUENCY SAMPLE âââââââââââââââââââââââ
 // Now uses all 5 entropy channels + D501 dimensional state
 function doSamp(rtt,rs){
   const all=mALL();
@@ -231,7 +231,7 @@ function doSamp(rtt,rs){
   };
 }
 
-// ── ALPHA1: ENHANCED LOCK + KEY ─────────────────────────────
+// ââ ALPHA1: ENHANCED LOCK + KEY âââââââââââââââââââââââââââââ
 // Now incorporates all 5 entropy channels + D501 dimensional filter
 // Key material is a true multi-dimensional quantum physical measurement
 function doLock(){
@@ -269,7 +269,7 @@ function doLock(){
   };
 }
 
-// ── ALPHA1: ENHANCED SPIN DOWN — D501 PHOTON KEY EXCHANGE ───
+// ââ ALPHA1: ENHANCED SPIN DOWN â D501 PHOTON KEY EXCHANGE âââ
 // Extended from 15 to 21 measurements (divisible by 3 for D501 triads)
 // Each measurement now samples all 5 entropy channels
 // D501 dimensional phase computed per measurement
@@ -311,7 +311,7 @@ function doRx(cb){
     if(!base){base=all.entropy;baseAll=all;}
     const delta=Math.abs(all.entropy-base)/base;
     const phase=(all.entropy*2*Math.PI*lF/1e9)%(2*Math.PI);
-    // D501 dimensional phase — uses all 5 channels
+    // D501 dimensional phase â uses all 5 channels
     const d501=computeD501State(all,cur?cur.networkRTT||500:500);
     const d501phase=d501[D31_DIMENSION]||0; // D31 component
     const d501D501=d501[D501_DIMENSIONS-1]||0; // D501 component
@@ -335,7 +335,7 @@ function doRx(cb){
   setTimeout(loop,200);
 }
 
-// ── ENCRYPTION (unchanged — already optimal) ─────────────────
+// ââ ENCRYPTION (unchanged â already optimal) âââââââââââââââââ
 function enc(pt,key){
   const k=Buffer.from(key.slice(0,64),'hex');
   const iv=c.randomBytes(16);
@@ -360,7 +360,7 @@ function dec(en,key){
   }catch(e){return{ok:false,reason:'DECRYPT_FAILED'};}
 }
 
-// ── WEBSOCKET HELPERS ────────────────────────────────────────
+// ââ WEBSOCKET HELPERS ââââââââââââââââââââââââââââââââââââââââ
 function wsSend(s,o){
   try{
     const b=Buffer.from(JSON.stringify(o));
@@ -378,7 +378,7 @@ function wsParse(buf){
   return d.toString('utf8');
 }
 
-// ── ALPHA1: EARTH FIELD COUPLING STATUS ─────────────────────
+// ââ ALPHA1: EARTH FIELD COUPLING STATUS âââââââââââââââââââââ
 function getEarthFieldStatus(){
   const uptime=process.uptime();
   const schumannPhase=(uptime*SCHUMANN_HZ*2*Math.PI)%(2*Math.PI);
@@ -396,12 +396,12 @@ function getEarthFieldStatus(){
   };
 }
 
-// ── UI HTML ──────────────────────────────────────────────────
+// ââ UI HTML ââââââââââââââââââââââââââââââââââââââââââââââââââ
 function getUI(){
   // Build the complete UI with Alpha1 enhancements
-  // All buttons permanently wired — no injection needed
+  // All buttons permanently wired â no injection needed
   const UI=`<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Photon Tunnel Alpha1 — D501</title>
+<title>Photon Tunnel Alpha1 â D501</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#03080f;color:#1a8a4a;font-family:monospace;font-size:12px;min-height:100vh}
@@ -486,10 +486,10 @@ canvas{width:100%;display:block}
     </svg>
     <span>PHOTON TUNNEL</span>
     <span class="badge">SETUP</span>
-    <span class="alpha1-badge">ALPHA1 · D501</span>
+    <span class="alpha1-badge">ALPHA1 Â· D501</span>
   </div>
   <div style="flex:1"></div>
-  <div style="font-size:9px;color:rgba(80,160,255,.4)">No AI · Real Hardware · D501 · Earth Field</div>
+  <div style="font-size:9px;color:rgba(80,160,255,.4)">No AI Â· Real Hardware Â· D501 Â· Earth Field</div>
   <div class="tag tg" style="margin-left:8px">LIVE</div>
 </div>
 
@@ -507,20 +507,20 @@ canvas{width:100%;display:block}
         <ellipse cx="50" cy="50" rx="44" ry="24" stroke="rgba(80,255,160,.38)" stroke-width="1.5"/>
       </svg>
       <div style="color:rgba(80,255,160,.95);font-size:22px;font-weight:bold;letter-spacing:3px;margin-bottom:4px">PHOTON TUNNEL</div>
-      <div style="color:rgba(255,200,80,.8);font-size:10px;letter-spacing:2px;margin-bottom:3px">ALPHA1 — D501 DIMENSIONAL ARCHITECTURE</div>
-      <div style="color:rgba(100,150,200,.5);font-size:9px;letter-spacing:1px">REAL HARDWARE · AES-256-GCM · EARTH FIELD COUPLING · 5-LAYER QUANTUM ENTROPY</div>
+      <div style="color:rgba(255,200,80,.8);font-size:10px;letter-spacing:2px;margin-bottom:3px">ALPHA1 â D501 DIMENSIONAL ARCHITECTURE</div>
+      <div style="color:rgba(100,150,200,.5);font-size:9px;letter-spacing:1px">REAL HARDWARE Â· AES-256-GCM Â· EARTH FIELD COUPLING Â· 5-LAYER QUANTUM ENTROPY</div>
     </div>
 
     <div class="sc" style="border:.5px solid rgba(255,200,80,.3)">
       <div style="color:rgba(255,200,80,.9);font-size:11px;font-weight:bold;margin-bottom:10px">ALPHA1 ENHANCEMENTS ACTIVE</div>
-      <div class="hr">✓ D501 Dimensional Architecture (501 quantum spin states)</div>
-      <div class="hr">✓ 5-Layer Entropy: CPU + Memory + Process + CryptoRNG + Hash</div>
-      <div class="hr">✓ Permanent Hardware Peer ID (never changes)</div>
-      <div class="hr">✓ Earth Field Coupling via Schumann 7.83Hz reference</div>
-      <div class="hr">✓ D31 interference filter (501-dimensional noise elimination)</div>
-      <div class="hr">✓ 21-measurement spin down (extended from 15)</div>
-      <div class="hr">✓ All buttons permanently wired — no injection needed</div>
-      <div class="hr">✓ No ngrok dependency — Earth field is the carrier</div>
+      <div class="hr">â D501 Dimensional Architecture (501 quantum spin states)</div>
+      <div class="hr">â 5-Layer Entropy: CPU + Memory + Process + CryptoRNG + Hash</div>
+      <div class="hr">â Permanent Hardware Peer ID (never changes)</div>
+      <div class="hr">â Earth Field Coupling via Schumann 7.83Hz reference</div>
+      <div class="hr">â D31 interference filter (501-dimensional noise elimination)</div>
+      <div class="hr">â 21-measurement spin down (extended from 15)</div>
+      <div class="hr">â All buttons permanently wired â no injection needed</div>
+      <div class="hr">â No ngrok dependency â Earth field is the carrier</div>
     </div>
 
     <div class="sc" style="border:.5px solid rgba(80,255,160,.3)">
@@ -571,7 +571,7 @@ canvas{width:100%;display:block}
 
   <!-- MAIN ENGINE -->
   <div class="card">
-    <h2>Photon Tunnel Alpha1 — D501 Quantum Engine
+    <h2>Photon Tunnel Alpha1 â D501 Quantum Engine
       <span style="display:flex;gap:5px;flex-wrap:wrap">
         <span class="tag tb2" id="sTag">READY</span>
         <span class="tag" id="spTag" style="color:#888;border-color:#44444444">IDLE</span>
@@ -589,7 +589,7 @@ canvas{width:100%;display:block}
 
     <!-- Alpha1: 5-channel entropy display -->
     <div class="d501-panel">
-      <h3>D501 ENTROPY CHANNELS — 5-LAYER QUANTUM MEASUREMENT</h3>
+      <h3>D501 ENTROPY CHANNELS â 5-LAYER QUANTUM MEASUREMENT</h3>
       <div class="d501-grid">
         <div class="d501-ch"><div class="lbl">CPU Jitter</div><div class="val" id="ch0">-</div></div>
         <div class="d501-ch"><div class="lbl">Memory</div><div class="val" id="ch1">-</div></div>
@@ -601,7 +601,7 @@ canvas{width:100%;display:block}
 
     <!-- Alpha1: Earth field status -->
     <div class="earth-panel">
-      <h3>EARTH FIELD COUPLING — D501 DIMENSIONAL LOCK</h3>
+      <h3>EARTH FIELD COUPLING â D501 DIMENSIONAL LOCK</h3>
       <div class="ef-grid">
         <div class="ef-item"><div class="lbl">Schumann Ref</div><div class="val" id="efHz">7.83 Hz</div></div>
         <div class="ef-item"><div class="lbl">D501 Phase</div><div class="val" id="efPhase">-</div></div>
@@ -612,7 +612,7 @@ canvas{width:100%;display:block}
       </div>
     </div>
 
-    <!-- Buttons — ALL PERMANENTLY WIRED in this file -->
+    <!-- Buttons â ALL PERMANENTLY WIRED in this file -->
     <div class="btns">
       <button class="btn" onclick="doS()">Sample hardware</button>
       <button class="btn" onclick="doL()">Lock + Key (D501)</button>
@@ -632,7 +632,7 @@ canvas{width:100%;display:block}
   <div class="card">
     <h2>Permanent Hardware Identity <span class="tag tg">ALPHA1</span></h2>
     <div class="pid-box">
-      <div style="margin-bottom:3px;font-size:8px;color:rgba(80,200,255,.5)">YOUR PERMANENT PEER ID (derived from hardware — never changes):</div>
+      <div style="margin-bottom:3px;font-size:8px;color:rgba(80,200,255,.5)">YOUR PERMANENT PEER ID (derived from hardware â never changes):</div>
       <div id="permPid" style="font-size:11px;font-weight:bold">loading...</div>
     </div>
     <div class="pid-box" style="border-color:rgba(255,200,80,.3)">
@@ -666,7 +666,7 @@ canvas{width:100%;display:block}
 
   <!-- Encrypted Chat -->
   <div class="card">
-    <h2>Encrypted chat — AES-256-GCM + HMAC + D501 <span class="tag tp" id="encTag">NO KEY</span></h2>
+    <h2>Encrypted chat â AES-256-GCM + HMAC + D501 <span class="tag tp" id="encTag">NO KEY</span></h2>
     <div class="cbx" id="chatbox"><div class="ms">Messages appear here. End-to-end encrypted via D501.</div></div>
     <div style="display:flex;gap:6px;margin-top:6px">
       <textarea id="ci" rows="2" placeholder="Type message to encrypt and send via D501..."></textarea>
@@ -687,12 +687,12 @@ canvas{width:100%;display:block}
 </div>
 
 <script>
-// ── ALPHA1: ALL BUTTON FUNCTIONS PERMANENTLY EMBEDDED ────────
+// ââ ALPHA1: ALL BUTTON FUNCTIONS PERMANENTLY EMBEDDED ââââââââ
 var B='http://'+location.hostname+':7432';
 var WS_URL='ws://'+location.hostname+':7432';
 var tick=0,wst='idle',lkFreq=0,ws=null,myFp=null,sp=null;
 
-// Session Peer ID (changes per session — display only)
+// Session Peer ID (changes per session â display only)
 var myPid='peer_'+(Math.abs((function(){var s=navigator.userAgent+screen.width+screen.height,h=0;for(var i=0;i<s.length;i++){h=(h<<5)-h+s.charCodeAt(i);h|=0;}return h;})())>>>0).toString(16).padStart(8,'0');
 document.getElementById('myPid').textContent=myPid;
 
@@ -729,7 +729,7 @@ function dw(){
 }
 setInterval(dw,80);
 
-// ── UTILITY ──────────────────────────────────────────────────
+// ââ UTILITY ââââââââââââââââââââââââââââââââââââââââââââââââââ
 function lg(m,c){
   var e=document.getElementById('mainLog'),d=document.createElement('div');
   if(c)d.style.color=c;
@@ -761,10 +761,10 @@ function cc(cmd,tid){
   }).catch(function(){});
 }
 
-// ── ALPHA1: SAMPLE HARDWARE — D501 ───────────────────────────
+// ââ ALPHA1: SAMPLE HARDWARE â D501 âââââââââââââââââââââââââââ
 async function doS(){
   wst='sampling';
-  lg('D501 sampling — 5 entropy channels + Earth field...','rgba(120,200,255,.85)');
+  lg('D501 sampling â 5 entropy channels + Earth field...','rgba(120,200,255,.85)');
   pg(10);
   try{
     var r=await fetch(B+'/api/sample'),d=await r.json();
@@ -794,7 +794,7 @@ async function doS(){
   }catch(e){lg('Error:'+e.message,'#ff4466');}
 }
 
-// ── ALPHA1: LOCK + KEY — D501 ENHANCED ───────────────────────
+// ââ ALPHA1: LOCK + KEY â D501 ENHANCED âââââââââââââââââââââââ
 async function doL(){
   try{
     lg('Locking D501 dimensional key...','rgba(80,200,255,.85)');
@@ -807,30 +807,30 @@ async function doL(){
   }catch(e){lg('Error:'+e.message,'#ff4466');}
 }
 
-// ── OPEN TUNNEL ──────────────────────────────────────────────
+// ââ OPEN TUNNEL ââââââââââââââââââââââââââââââââââââââââââââââ
 async function doT(){
   try{
     var r=await fetch(B+'/api/tunnel/open',{method:'POST'}),d=await r.json();
     wst='tunnel';
-    lg('TUNNEL OPEN D'+d.lockDim+' — D501 dimensional space active','rgba(80,255,160,.95)');
+    lg('TUNNEL OPEN D'+d.lockDim+' â D501 dimensional space active','rgba(80,255,160,.95)');
     pg(65);stag('sTag','TUNNEL','tg');
     stag('efTag','D501 TUNNEL','tg');
   }catch(e){lg('Error:'+e.message,'#ff4466');}
 }
 
-// ── SPIN UP ──────────────────────────────────────────────────
+// ââ SPIN UP ââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function doU(){
   wst='tx';
   stag('spTag','UP TX','tg');
   lg('D501 Photon SPIN UP TX active','rgba(80,255,160,.9)');
 }
 
-// ── ALPHA1: SPIN DOWN — 21-MEASUREMENT D501 ──────────────────
+// ââ ALPHA1: SPIN DOWN â 21-MEASUREMENT D501 ââââââââââââââââââ
 async function doDown(){
   wst='rx';
   stag('rxTag','D501 MEASURING','ta');
   document.getElementById('rxLog').innerHTML='';
-  lg('D501 SPIN DOWN — 21 measurements across 501 dimensions...','rgba(255,200,80,.9)');
+  lg('D501 SPIN DOWN â 21 measurements across 501 dimensions...','rgba(255,200,80,.9)');
   try{
     await fetch(B+'/api/receiver/activate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({})});
   }catch(e){lg('Error:'+e.message,'#ff4466');return;}
@@ -853,16 +853,16 @@ async function doDown(){
           stag('spTag','FLIPPED','tg');
           stag('rxTag','COMPLETE','tg');
         }
-        lg('D501 SPIN FLIP complete — 21-measurement key ready','rgba(80,255,160,.95)');
+        lg('D501 SPIN FLIP complete â 21-measurement key ready','rgba(80,255,160,.95)');
         pg(85);
       }
     }catch(e){}
   },600);
 }
 
-// ── ALPHA1: D501 FULL SCAN ───────────────────────────────────
+// ââ ALPHA1: D501 FULL SCAN âââââââââââââââââââââââââââââââââââ
 async function doD501Scan(){
-  lg('D501 full scan — 501 dimensional state measurement...','rgba(255,150,50,.9)');
+  lg('D501 full scan â 501 dimensional state measurement...','rgba(255,150,50,.9)');
   stag('d501Tag','SCANNING','ta');
   try{
     var r=await fetch(B+'/api/d501scan'),d=await r.json();
@@ -881,18 +881,18 @@ async function doD501Scan(){
   }
 }
 
-// ── WEBSOCKET ────────────────────────────────────────────────
+// ââ WEBSOCKET ââââââââââââââââââââââââââââââââââââââââââââââââ
 function doWS(){
   var fp=myFp;
   if(!fp){lg('Lock first to establish D501 key','rgba(255,160,60,.8)');return;}
   if(ws&&ws.readyState===1){lg('Already connected','rgba(255,160,60,.8)');return;}
-  lg('Connecting WebSocket — D501 Earth field lock...','rgba(80,200,255,.85)');
+  lg('Connecting WebSocket â D501 Earth field lock...','rgba(80,200,255,.85)');
   ws=new WebSocket(WS_URL);
   ws.onopen=function(){
     ws.send(JSON.stringify({type:'handshake',peerId:myPid,fingerprint:fp,permanentId:document.getElementById('permPid').textContent}));
     wst='ws';
     stag('wst','WS LIVE','tg');
-    lg('WebSocket live — D501 tunnel active','rgba(80,255,160,.9)');
+    lg('WebSocket live â D501 tunnel active','rgba(80,255,160,.9)');
     chat('Connected as '+myPid+' | Permanent:'+document.getElementById('permPid').textContent.slice(0,20),'sys');
     pg(100);
     if(sp)clearInterval(sp);
@@ -903,7 +903,7 @@ function doWS(){
   ws.onclose=function(){
     stag('wst','WS OFFLINE','');
     wst='tunnel';
-    lg('WS dropped — reconnecting in 3s...','rgba(255,160,60,.8)');
+    lg('WS dropped â reconnecting in 3s...','rgba(255,160,60,.8)');
     setTimeout(doWS,3000);
   };
   ws.onerror=function(){};
@@ -929,7 +929,7 @@ function hwm(d){
   if(d.type==='error'){lg('SECURITY:'+d.reason,'#ff4466');chat('SECURITY:'+d.reason,'sys');refSec();}
 }
 
-// ── SEND ─────────────────────────────────────────────────────
+// ââ SEND âââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function doSend(){
   var msg=document.getElementById('ci').value.trim();
   if(!msg)return;
@@ -947,7 +947,7 @@ async function doSend(){
   }catch(e){lg('Error:'+e.message,'#ff4466');}
 }
 
-// ── REFRESH ──────────────────────────────────────────────────
+// ââ REFRESH ââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function refPeers(){
   try{
     var r=await fetch(B+'/api/peers'),d=await r.json();
@@ -1001,7 +1001,7 @@ refPeers();
   return UI;
 }
 
-// ── HTTP SERVER ───────────────────────────────────────────────
+// ââ HTTP SERVER âââââââââââââââââââââââââââââââââââââââââââââââ
 const srv=http.createServer(async(req,res)=>{
   const url=new URL(req.url,'http://localhost:'+P);
   res.setHeader('Access-Control-Allow-Origin','*');
@@ -1098,7 +1098,7 @@ const srv=http.createServer(async(req,res)=>{
       d501Active:true,d501dimensions:D501_DIMENSIONS,
       schumannHz:SCHUMANN_HZ,
       entropyLayers:5,
-      version:'ALPHA1-D501',
+      version:'ALPHA1-UNIFIED-TEST',
       earthFieldCoupled:true
     });return;
   }
@@ -1109,7 +1109,7 @@ const srv=http.createServer(async(req,res)=>{
   res.writeHead(404);res.end('Not found');
 });
 
-// ── WEBSOCKET UPGRADE ─────────────────────────────────────────
+// ââ WEBSOCKET UPGRADE âââââââââââââââââââââââââââââââââââââââââ
 srv.on('upgrade',function(req,sock){
   const k=req.headers['sec-websocket-key'];
   if(!k){sock.destroy();return;}
@@ -1151,28 +1151,28 @@ srv.on('upgrade',function(req,sock){
   sock.on('error',function(){});
 });
 
-// ── START ─────────────────────────────────────────────────────
+// ââ START âââââââââââââââââââââââââââââââââââââââââââââââââââââ
 srv.listen(P,function(){
   const nets=os.networkInterfaces();let ip='localhost';
   Object.values(nets).forEach(n=>n.forEach(i=>{if(i.family==='IPv4'&&!i.internal)ip=i.address;}));
   console.log('');
-  console.log('╔══════════════════════════════════════════════════════╗');
-  console.log('║   PHOTON TUNNEL ALPHA1 — D501 DIMENSIONAL ENGINE    ║');
-  console.log('╠══════════════════════════════════════════════════════╣');
-  console.log('║  Local:  http://localhost:'+P+'                       ║');
-  console.log('║  Local:  http://'+ip+':'+P+'                  ║');
-  console.log('╠══════════════════════════════════════════════════════╣');
-  console.log('║  ALPHA1 ACTIVE:                                      ║');
-  console.log('║  ✓ D501 Dimensional Architecture (501 states)        ║');
-  console.log('║  ✓ 5-Layer Entropy: CPU+MEM+PROC+CRNG+HASH           ║');
-  console.log('║  ✓ Permanent Peer ID: '+PEER_ID+'  ║');
-  console.log('║  ✓ Earth Field Coupling: '+SCHUMANN_HZ+' Hz Schumann          ║');
-  console.log('║  ✓ 21-Measurement Spin Down (extended from 15)       ║');
-  console.log('║  ✓ All buttons permanently wired                     ║');
-  console.log('║  ✓ No ngrok dependency                               ║');
-  console.log('╠══════════════════════════════════════════════════════╣');
-  console.log('║  No AI. No Simulation. Real Hardware. Real Physics.  ║');
-  console.log('╚══════════════════════════════════════════════════════╝');
+  console.log('ââââââââââââââââââââââââââââââââââââââââââââââââââââââââ');
+  console.log('â   PHOTON TUNNEL ALPHA1 â D501 DIMENSIONAL ENGINE    â');
+  console.log('â âââââââââââââââââââââââââââââââââââââââââââââââââââââââ£');
+  console.log('â  Local:  http://localhost:'+P+'                       â');
+  console.log('â  Local:  http://'+ip+':'+P+'                  â');
+  console.log('â âââââââââââââââââââââââââââââââââââââââââââââââââââââââ£');
+  console.log('â  ALPHA1 ACTIVE:                                      â');
+  console.log('â  â D501 Dimensional Architecture (501 states)        â');
+  console.log('â  â 5-Layer Entropy: CPU+MEM+PROC+CRNG+HASH           â');
+  console.log('â  â Permanent Peer ID: '+PEER_ID+'  â');
+  console.log('â  â Earth Field Coupling: '+SCHUMANN_HZ+' Hz Schumann          â');
+  console.log('â  â 21-Measurement Spin Down (extended from 15)       â');
+  console.log('â  â All buttons permanently wired                     â');
+  console.log('â  â No ngrok dependency                               â');
+  console.log('â âââââââââââââââââââââââââââââââââââââââââââââââââââââââ£');
+  console.log('â  No AI. No Simulation. Real Hardware. Real Physics.  â');
+  console.log('ââââââââââââââââââââââââââââââââââââââââââââââââââââââââ');
   console.log('');
   // Print hardware fingerprint
   console.log('HW FINGERPRINT: '+HW_FINGERPRINT.slice(0,32)+'...');
